@@ -10,7 +10,7 @@ var i = 1;
 function restaurants(i){
 
     if (i > 36){
-        fs.writeFile('restaurants.json', json, function (err) {
+        fs.writeFile('restaurants.json', JSON.stringify(json), function (err) {
             if (err) throw err;
             console.log('Saved into restaurants.json!');
         });
@@ -40,62 +40,11 @@ function restaurants(i){
         restaurants(i)
     });
 }
+
 restaurants(i);
 
 
 
     
-
-// for(var i = 1; i<36; i++){ //TODO find a way to loop on the result
-//     urls.push("https://restaurant.michelin.fr/restaurants/france/restaurants-1-etoile-michelin/restaurants-2-etoiles-michelin/restaurants-3-etoiles-michelin/page-"+i);
-// }
-
-// for(var i = 0; i<urls.length; i++){
-//     request(urls[i], function(error, response, html){
-//         console.log(urls[i])
-
-//         if(!error){
-//             var $ = cheerio.load(html);
-//             var object = { nom: "", offre: "", genre: "", prix: ""}
-
-//             //NAMES
-//             $('[attr-gtm-type = poi]').each(function(i, elem){
-//                 var data = $(this);
-//                 object.nom = data.attr("attr-gtm-title");
-//             });
-
-//             //PRIX
-//             $('.poi_card-display-price').each(function(i, elem){
-//                 var data = $(this);
-//                 prix[i] = data.text();
-//             });
-
-//             //OFFRE
-//             $('.mtpb2c-offers').each(function(i, elem){
-//                 var data = $(this);
-//                 offre[i] = data.text();
-//             });
-//             //GENRE
-//             $('.poi_card-display-cuisines').each(function(i, elem){
-//                 var data = $(this);
-//                 genre[i] = data.text();
-//             });
-
-
-//             json.push(object);
-//             // console.log("page " + i + "\n");
-//             console.log(json)
-
-//         }
-//         else{
-//             console.log("error")
-//         }
-
-
-//     });
-
-// }
-
-    //console.log(urls);
 
 
