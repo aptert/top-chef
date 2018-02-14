@@ -14,7 +14,7 @@ function restaurants(i){
             if (err) throw err;
             console.log('Saved into restaurants.json!');
         });
-        return null;
+        return json;
     }
     url = "https://restaurant.michelin.fr/restaurants/france/restaurants-1-etoile-michelin/restaurants-2-etoiles-michelin/restaurants-3-etoiles-michelin/page-"+i;
     console.log(url);
