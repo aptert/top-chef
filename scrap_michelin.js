@@ -23,12 +23,11 @@ function restaurants(i){
             var $ = cheerio.load(html);
 
             $('[attr-gtm-type = poi]').each(function(i, elem){
-                var restau = {nom: "", prix: "", offre: "", genre: ""};
+                var restau = {nom: "", prix: "", genre: "", promotion: "", evenement:"", lien_la_fourchette:""};
                 var data = $(elem);
-                restau.nom = data.attr("attr-gtm-title");
-                restau.prix = data.find('.poi_card-display-price').text();
-                restau.offre = data.find('.mtpb2c-offers').text();
-                restau.genre = data.find('.poi_card-display-cuisines').text();
+                restau.nom = data.attr("attr-gtm-title").trim();
+                restau.prix = data.find('.poi_card-display-price').text().trim();
+                restau.genre = data.find('.poi_card-display-cuisines').text().trim();
                 json.push(restau)
             });
         }
@@ -41,9 +40,9 @@ function restaurants(i){
     });
 }
 
-restaurants(i);
+module.exports.restaurants = restaurants;
+module.exports.etoiles = json;
 
-module.exports.restaurants(1);
 
 
     
