@@ -22,10 +22,10 @@ function getId(name){
                         return resolve("restaurant not found");
                     }
                     else{
-                        return resolve(json[0].id);
+                        /*return getPromo(json[0].id).then(response => resolve(response)).catch(err => console.error(err));*/
+                        return resolve(json[0].id)
                     }
                 }
-                // return resolve(normalizedName + " " +  html)
             }
         });
     });
@@ -39,10 +39,9 @@ function getPromo(id){
                 return reject(err);
             }
             else if(id != "restaurant not found"){
-                // const json = JSON.parse(html);
-                // return resolve(json[0].title);
+                const json = JSON.parse(html);
+                return resolve(json);
 
-                return resolve(id + "               " + html)
             }
         });
     });
