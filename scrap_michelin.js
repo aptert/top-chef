@@ -23,7 +23,7 @@ function restaurants(i){
             var $ = cheerio.load(html);
 
             $('[attr-gtm-type = poi]').each(function(i, elem){
-                var restau = {nom: "", prix: "", genre: "", promotion: "", evenement:"", lien_la_fourchette:""};
+                var restau = {nom: "", prix: "", genre: "", promotion: "", evenement:"", id:""};
                 var data = $(elem);
                 restau.nom = data.attr("attr-gtm-title").trim();
                 restau.prix = data.find('.poi_card-display-price').text().trim();
@@ -39,6 +39,7 @@ function restaurants(i){
         restaurants(i)
     });
 }
+
 
 module.exports.restaurants = restaurants;
 module.exports.etoiles = json;

@@ -4,24 +4,24 @@ var request = require("request");
 var cheerio = require("cheerio");
 var accent = require("remove-accents");
 
-function getId(name){
+function getId(name) {
     normalizedName = name.normalize('NFD').replace(/[\u0300-\u036f]/g, ""); //On enlève les accents sinon bad request erreur 400
 
-    return new Promise((resolve, reject) =>{
-        request("https://m.lafourchette.com/api/restaurant-prediction?name="+normalizedName, (err, resp, html)=>{
-            if (err){
+    return new Promise((resolve, reject) => {
+        request("https://m.lafourchette.com/api/restaurant-prediction?name=" + normalizedName, (err, resp, html) => {
+            if (err) {
                 return reject(err);
             }
-            else{
-                if(html == "<html><body><h1>400 Bad request</h1>\nYour browser sent an invalid request.\n</body></html>\n"){
+            else {
+                if (html == "<html><body><h1>400 Bad request</h1>\nYour browser sent an invalid request.\n</body></html>\n") {
                     return resolve("400 bad request")
                 }
-                else{
+                else {
                     const json = JSON.parse(html);
-                    if(json[0] == null){
+                    if (json[0] == null) {
                         return resolve("restaurant not found");
                     }
-                    else{
+                    else {
                         /*return getPromo(json[0].id).then(response => resolve(response)).catch(err => console.error(err));*/
                         return resolve(json[0].id)
                     }
@@ -29,23 +29,31 @@ function getId(name){
             }
         });
     });
-    
+
 }
 
-function getPromo(id){
+function getPromo(id) {
     return new Promise((resolve, reject) => {
-        request("https://m.lafourchette.com/api/restaurant/"+id+"/sale-type", (err, resp, html) =>{
-            if(err){
+        request("https://m.lafourchette.com/api/restaurant/" + id + "/sale-type", (err, resp, html) => {
+            if (err) {
                 return reject(err);
             }
-            else if(id != "restaurant not found"){
-                const json = JSON.parse(html);
-                return resolve(json);
-
+            else if (id != "restaurant not found") {
+                // const json = JSON.parse(html);
+                // var promo = []
+                // for (var i = 0; i < json.length; i++){
+                //     if(json[i].is_special_offer){
+                //         promo.push(json[i])
+                //     }
+                // }
+                return resolve(html)
+            }
+            else {
+                return resolve("no restaurant")
             }
         });
     });
-    
+
 }
 
 module.exports.getId = getId;

@@ -2,40 +2,33 @@ var fourchette = require("./scrap_fourchette_promise");
 var fs = require("fs");
 
 var file = fs.readFileSync("./restaurants.json");
-var json = JSON.parse(file);
-
-var restaurants = []
-json.forEach(element => {
-    restaurants.push(element.nom)
-});
-
-function mapForPromo(ids){
-    
-}
-
-const ids = restaurants.map(restaurants => fourchette.getId(restaurants))
-const promo = ids.map(ids => fourchette.getPromo(ids))
-// Promise.all(ids)
-//     .then(Promise.all(promo)
-//         .then(response => console.log("ids" + ids + "response" + response))
-//         .catch(err => console.log("err" + err)))
-//     .catch(err => console.log("error" + err))
+var restau = JSON.parse(file);
 
 
+
+
+const ids = restau.map(oneResteau => fourchette.getId(oneResteau.nom))
 Promise.all(ids)
-    .then(function(response){
-        var treatedResponse = response.toString().split(",");
-        var onlyIds = []
-        treatedResponse.forEach(function(element){
-            if(element != "restaurant not found"){
-                onlyIds.push(element);
-            }
-        });
+    .then(response => {
+        //On recupere les ids pour chaque restaurant
+        restau.forEach(function(element, index){
+            element.id = response[index]
+        })
+        const promo = restau.map(oneResteau => fourchette.getPromo(oneResteau.id))
+        console.log("Deuxième étape")
+        Promise.all(promo)
+            .then(response => {
+                var promo = []
+                
+                // fs.writeFile('promo.json', JSON.stringify(promo), function (err) {
+                //                     if (err) throw err;
+                //                     console.log('Saved into promo.json!');
+                //                 })
 
-        console.log("nombre d'ids" + onlyIds.length)
-        fs.writeFile('testIds.txt', onlyIds, function (err) {
-            if (err) throw err;
-            console.log('Saved into testIds.txt!')
-        });
+                console.log(response)
+            })
+            .catch(err => console.error("ERROR --> " + err))
+        
     })
     .catch(err => console.log(err))
+
