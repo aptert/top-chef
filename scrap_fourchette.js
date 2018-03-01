@@ -24,7 +24,7 @@ function getPage(name, callback){
     const configuration_search = {
         'url': "https://www.lafourchette.com/search-refine/"+name,
         'headers': {
-            "cookie": "datadome=AHrlqAAAAAMAamrCke7KgmkALtotww=="
+            "cookie": "datadome=AHrlqAAAAAMALdr3mNZ1_xMALtotww=="
         }
     }
     request(configuration_search, function(error, response, html){

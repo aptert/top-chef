@@ -39,14 +39,14 @@ function getPromo(id) {
                 return reject(err);
             }
             else if (id != "restaurant not found") {
-                // const json = JSON.parse(html);
-                // var promo = []
-                // for (var i = 0; i < json.length; i++){
-                //     if(json[i].is_special_offer){
-                //         promo.push(json[i])
-                //     }
-                // }
-                return resolve(html)
+                const json = JSON.parse(html);
+                var promo = []
+                for (var i = 0; i < json.length; i++){
+                    if(json[i].is_special_offer){
+                        promo.push(json[i])
+                    }
+                }
+                return resolve(promo)
             }
             else {
                 return resolve("no restaurant")

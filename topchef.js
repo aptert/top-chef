@@ -4,6 +4,12 @@ var fs = require("fs");
 var file = fs.readFileSync("./restaurants.json");
 var restau = JSON.parse(file);
 
+function write(name, content){
+    fs.writeFile(name, content, function (err) {
+        if (err) throw err;
+        console.log('******************************************* Saved into ' + name);
+    })
+}
 
 
 
@@ -18,17 +24,21 @@ Promise.all(ids)
         console.log("Deuxième étape")
         Promise.all(promo)
             .then(response => {
-                var promo = []
-                
-                // fs.writeFile('promo.json', JSON.stringify(promo), function (err) {
-                //                     if (err) throw err;
-                //                     console.log('Saved into promo.json!');
-                //                 })
+                var promo= []
+                response.forEach(element => {
+                    if(element != "no restaurant"){
+                        promo.push(element)
+                    }
+                })
 
-                console.log(response)
+                restau.forEach((element, index) => {
+                    element.promotion = promo[index]
+                })
+                write("restaurants.json", JSON.stringify(restau))
+
             })
-            .catch(err => console.error("ERROR --> " + err))
+            .catch(err => console.error("ERROR 2 --> " + err))
         
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log("ERROR 1 -->" + err))
 
