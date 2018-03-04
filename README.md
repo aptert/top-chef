@@ -2,6 +2,13 @@
 
 > Tom Apter's project
 
+## Important to know
+I was unfortunetly blocked by lafourchette website and wasn't able to fix it. Thanks to Vidushan who gave me the offers he got from his script, i was able to work on the React.js part. I spend a lot of time on this lafourchette problem and i'm very frustated not to be abl to use my server side code. 
+
+So there is no need to run the server side script because the json file that I use for the client side, is not the one I got from my code. 
+
+The server side code is not returning a good json file because I wasn't able to finish it. 
+
 ## How to use it
 
 To run the react application you must move to the client-side folder then run the npm install command. Then you can run the npm start command to launch the app on your browser
@@ -11,153 +18,3 @@ To run the react application you must move to the client-side folder then run th
 ❯ npm start
 ````
 
-## Objective - Workshop in 1 sentence
-
-**Get the current deal for a France located Michelin starred restaurants.**
-
-## How to do that?
-
-By creating a link between [restaurant.michelin.fr](https://restaurant.michelin.fr/), [lafourchette.com](https://www.lafourchette.com) and the end-user.
-
-### Stack
-
-```
-Node.js + React + Material Design (mdl, bootstrap, foundation...) + ES6 [+ docker + redis ...]
-```
-
-## Just tell me what to do
-
-1. Fork the project via `github`
-1. Clone your forked repository project `https://github.com/YOUR_USERNAME/top-chef`
-
-```sh
-❯ cd /path/to/workspace
-❯ git clone git@github.com:YOUR_USERNAME/top-chef.git
-```
-
-
-1. Follow the steps
-1. commit your different modifications:
-
-```sh
-❯ cd /path/to/workspace/top-chef
-❯ git add -A && git commit -m "feat(restaurants): fetch list of starred restautants"
-```
-
-([why following a commit message convention?](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits))
-
-1. Don't forget to push before the end of the workshop **and** before the end of the 2 dedicated sessions
-
-```sh
-❯ git push origin master
-```
-
-**Note**: if you catch an error about authentication, [add your ssh to your github profile](https://help.github.com/articles/connecting-to-github-with-ssh/).
-
-1. If you need some helps on git commands, read [git - the simple guide](http://rogerdudler.github.io/git-guide/)
-
-## Examples of steps to do
-
-### Investigation
-
-#### Michelin Restaurant
-
-1. How it works https://restaurant.michelin.fr
-1. What are the given properties for a starred restaurant: name, adress, town, stars, chef... ?
-1. ...
-
-Some things to do:
-
-1. Browse the website
-1. define the JSON schema for a restaurant
-1. ...
-
-Example of Restaurant: https://restaurant.michelin.fr/2abl39j/le-chiberta-paris-08
-
-#### Deals from LaFourchette
-
-1. How it works https://www.lafourchette.com
-1. What are the properties that we need to provide to lafourchette.com to get a deal ?
-1. How to identify a deal on the page ?
-1. ...
-
-Some things to do:
-
-1. Browse the website
-1. Check how that you can get the deal: api etc.... (check network activity)
-1. define the properties required to get a deal
-1. define the JSON schema for a deal
-1. ...
-
-Example of a deal: https://www.lafourchette.com/restaurant/le-chiberta-stephane-laruelle-guy-savoy/2828
-
-#### The web application
-
-Some things to do:
-
-1. How to create a link between the starred restaurant and lafourchette?
-
-### Server-side with Node.js
-
-#### require('michelin')
-
-Create a module called `michelin` that return the list of restaurant
-
-```js
-const michelin = require('michelin');
-
-console.log(michelin.get());
-```
-
-Some things to do:
-
-1. scrape list of France located starred restaurants
-1. store the list into JSON file, nosql database (like redis, mongodb...)
-1. create a node module that return the list
-
-#### require('lafourchette')
-
-Create a module called `lafourchette` that return the available deal for a given restaurant
-
-```js
-const lafourchette = require('lafourchette');
-...
-const restaurant = {...};
-
-
-console.log(lafourchette.getDeal(restaurant));
-```
-
-Some things to do:
-
-1. create the calls (api, http) to get the restaurant page
-1. get the deal (by scraping or decoding api response)
-1. return the deal
-
-### Client-side with React
-
-MVP to do:
-
-1. **List France located starred restaurant and their current deals**
-
-Next features:
-
-2. Add filters:
-  * filtering by name
-  * sorting by stars
-3. Bonus: Display on a map only the starred restaurants with an active deal
-
-### Notification (bonus)
-
-Some things to do:
-
-1. Notify me (discord or slack) a new deal for any starred restaurant
-2. Monitor and notify a new deal for a given restaurant
-
-## Don't forget
-
-**Focus on codebase and UX/UI**
-
-## Licence
-
-[Uncopyrighted](http://zenhabits.net/uncopyright/)
