@@ -1,0 +1,19 @@
+.table{
+    width:100%; 
+    border-collapse:collapse; 
+    text-align: center
+}
+.table thead{
+    background-color: #78a1e9;
+}
+.table td{ 
+    padding:7px; 
+}
+/* Define the default color for all the table rows */
+.table tr{
+    background: #b8d1f3;
+}
+/* Define the hover highlight color for the table row */
+.table tr:hover {
+    background-color: rgb(211, 236, 250);
+}

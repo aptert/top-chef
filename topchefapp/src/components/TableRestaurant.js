@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import json from '../restaurant-vidu'
 import StarRatingComponent from 'react-star-rating-component';
-import { isUndefined } from 'util';
+import './TableRestaurants.css';
 
 
 class TableRestaurant extends React.Component{
@@ -12,22 +12,23 @@ class TableRestaurant extends React.Component{
         }
     }
 
+   
+
     render(){
         return(
-            <table className="table table-hover">
+            <table className="table table-justify">
                 <thead>
                     <th>Name</th>
                     <th>Address</th>
                     <th>Stars</th>
                     <th>Deals</th>
-                </thead>
+                </thead> 
                 <tbody>
                     {
                         this.state.restaurants.map(restau => {
-                            
                             if(restau.sales.length != 0){
                                 return (
-                                    <tr>
+                                <tr>
                                     <td>{restau.mName}</td>
                                     <td>{restau.address.address_road + " " + restau.address.postal_code + " " + restau.address.address_locality}</td>
                                     <td><StarRatingComponent 
@@ -37,7 +38,7 @@ class TableRestaurant extends React.Component{
                                     </td>
                                     
                                     <td>{restau.sales[0].title}</td>
-                                </tr>
+                                </tr>                        
                                 )
                             }
                             

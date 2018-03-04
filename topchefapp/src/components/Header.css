@@ -1,0 +1,17 @@
+.Header-logo {
+    animation: App-logo-spin infinite 05s linear;
+    height: 80px;
+  }
+  
+  .Header-header {
+    background-color: rgb(211, 236, 250);
+    height: 150px;
+    padding: 20px;
+    color: white;
+  }
+  
+  .Header-title {
+    font-size: 1.5em;
+    color: rgb(34, 73, 95);
+
+  }
