@@ -22,7 +22,6 @@ function getId(name) {
                         return resolve("restaurant not found");
                     }
                     else {
-                        /*return getPromo(json[0].id).then(response => resolve(response)).catch(err => console.error(err));*/
                         return resolve(json[0].id)
                     }
                 }
@@ -41,11 +40,12 @@ function getPromo(id) {
             else if (id != "restaurant not found") {
                 const json = JSON.parse(html);
                 var promo = []
-                for (var i = 0; i < json.length; i++){
-                    if(json[i].is_special_offer){
-                        promo.push(json[i])
+
+                json.forEach((element, index) => {
+                    if(element.is_special_offer){
+                        promo.push(element)
                     }
-                }
+                });
                 return resolve(promo)
             }
             else {

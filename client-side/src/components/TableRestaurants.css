@@ -1,10 +1,12 @@
 .table{
     width:100%; 
     border-collapse:collapse; 
-    text-align: center
+    text-align: center;
+    margin-top: 190px;
 }
 .table thead{
     background-color: #78a1e9;
+    border: #000000 2px solid;
 }
 .table td{ 
     padding:7px; 
@@ -12,8 +14,13 @@
 /* Define the default color for all the table rows */
 .table tr{
     background: #b8d1f3;
+    border: #000000 1px solid
 }
 /* Define the hover highlight color for the table row */
 .table tr:hover {
     background-color: rgb(211, 236, 250);
+}
+
+.logo_lafourchette{
+    height: 50px;
 }

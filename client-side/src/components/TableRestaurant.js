@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import json from '../restaurant-vidu'
 import StarRatingComponent from 'react-star-rating-component';
+import lafourchettelogo from"./lafourchette.png"
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 import './TableRestaurants.css';
 
 
@@ -11,17 +14,17 @@ class TableRestaurant extends React.Component{
             restaurants: json
         }
     }
-
    
 
     render(){
         return(
-            <table className="table table-justify">
+            <table className="table">
                 <thead>
                     <th>Name</th>
                     <th>Address</th>
                     <th>Stars</th>
                     <th>Deals</th>
+                    <th></th>
                 </thead> 
                 <tbody>
                     {
@@ -34,10 +37,12 @@ class TableRestaurant extends React.Component{
                                     <td><StarRatingComponent 
                                             starCount={3}
                                             value={restau.stars}
+                                            editing={false}
                                         />              
                                     </td>
                                     
                                     <td>{restau.sales[0].title}</td>
+                                    <td><a href={restau.laFUrl} target="blank"><img src={lafourchettelogo} className="logo_lafourchette" alt="logo_lafourchette"/></a></td>
                                 </tr>                        
                                 )
                             }
