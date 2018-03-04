@@ -4,7 +4,12 @@
 
 ## How to use it
 
-To run the react application you must 
+To run the react application you must move to the client-side folder then run the npm install command. Then you can run the npm start command to launch the app on your browser
+````
+❯ cd client-side
+❯ npm install
+❯ npm start
+````
 
 ## Objective - Workshop in 1 sentence
 
