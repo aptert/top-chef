@@ -1,48 +1,10 @@
 # TOP CHEF
 
-> Eat well and cheaper than usually
+> Tom Apter's project
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+## How to use it
 
-- [Introduction](#introduction)
-- [Objective - Workshop in 1 sentence](#objective---workshop-in-1-sentence)
-- [How to do that?](#how-to-do-that)
-  - [Stack](#stack)
-- [Just tell me what to do](#just-tell-me-what-to-do)
-- [Examples of steps to do](#examples-of-steps-to-do)
-  - [Investigation](#investigation)
-    - [Michelin Restaurant](#michelin-restaurant)
-    - [Deals from LaFourchette](#deals-from-lafourchette)
-    - [The web application](#the-web-application)
-  - [Server-side with Node.js](#server-side-with-nodejs)
-    - [require('michelin')](#requiremichelin)
-    - [require('lafourchette')](#requirelafourchette)
-  - [Client-side with React](#client-side-with-react)
-  - [Notification (bonus)](#notification-bonus)
-- [Don't forget](#dont-forget)
-- [Licence](#licence)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-## Introduction
-
-Each year, Michelin publish the Michelin Red Guide which awards Michelin stars to some restaurants.
-
-The criteria for the stars are:
-
-1. Michelin star **"A very good restaurant in its category"** (Une très bonne table dans sa catégorie)
-2. Michelin stars: **"Excellent cooking, worth a detour"** (Table excellente, mérite un détour)
-3. Michelin stars: **"Exceptional cuisine, worth a special journey"** (Une des meilleures tables, vaut le voyage)
-
-Ther average price for a starred restaurant could start from 50€ up to more than 400€.
-
-Thanks the [LaFourchette](https://www.lafourchette.com), you can book a restaurant at the best price and get exclusive offers and discount up to 50%.
-
-![michelin](./img/michelin.png)
-
-![lafourchette](./img/lafourchette.png)
+To run the react application you must 
 
 ## Objective - Workshop in 1 sentence
 
